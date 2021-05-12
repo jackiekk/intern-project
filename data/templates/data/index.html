@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+  </head>
+  <body class="container">
+    <div class="heading">
+      <h2>Participate in the following survey!</h2>
+    </div>
+    <div class="qst">
+      {% if latest_question_list %}
+          <ul>
+          {% for question in latest_question_list %}
+              <li><a href={% url 'data:detail' pk=question.pk %}">{{ question.question_text }}</a></li>
+          {% endfor %}
+          </ul>
+      {% else %}
+          <p>No Quest. are available.</p>
+      {% endif %}
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+
+  </body>
+</html>
